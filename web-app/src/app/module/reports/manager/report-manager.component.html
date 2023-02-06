@@ -1,0 +1,81 @@
+<p-panel>
+    <ng-template pTemplate="header">
+        <img alt="franquicias"
+             src="assets/icons/module/report-manager.png"
+             style="width: 24px">
+        <div class="p-panel-title">Administrador de reportes</div>
+    </ng-template>
+
+    <ng-template pTemplate="content">
+        <!--BARRA DE MENU-->
+        <p-megaMenu>
+            <p-button styleClass="p-button-text p-button-sm">
+                <img alt="logo" src="assets/icons/module/new-report.png" style="width: 1.5rem"/>
+                <span [ngStyle]="{color:'var(--text-color)'}" class="ml-2 font-bold">Nuevo</span>
+            </p-button>
+        </p-megaMenu>
+        <!--CONTENIDO PRINCIPAL DEL PANEL-->
+        <div class="panel-main-content">
+            <!--FILTROS DE BUSQUEDA-->
+            <p-fieldset [collapsed]="true" [toggleable]="true" legend="Filtro de busqueda">
+                <div class="p-fluid grid py-0 my-0 px-2">
+                    <div class="col-12 py-2 md:col-3">
+                        <div class="p-inputgroup">
+                            <input pInputText placeholder="No. reporte" type="text">
+                            <button class="p-button-secondary" icon="pi pi-search" pButton pRipple
+                                    styleClass="p-button-warn"
+                                    type="button"></button>
+                        </div>
+                    </div>
+                    <div class="col-12 py-2 md:col-3">
+                        <div class="p-inputgroup">
+                            <p-calendar inputId="calendar" placeholder="Fecha desde"></p-calendar>
+                            <button class="p-button-secondary " icon="pi pi-search" pButton pRipple
+                                    styleClass="p-button-warn"
+                                    type="button"></button>
+                        </div>
+                    </div>
+                </div>
+            </p-fieldset>
+            <!--TABLA DE REPORTES-->
+            <p-table [scrollable]="true" [tableStyle]="{'min-width': '50rem'}" scrollHeight="400px"
+                     styleClass="p-datatable-sm">
+
+                <ng-template pTemplate="caption">
+                    <div class="flex">
+                    <span class="p-input-icon-left ml-auto">
+                    <i class="pi pi-search"></i>
+                    <input pInputText placeholder="Buscar en resultados" type="text"/>
+                </span>
+                    </div>
+                </ng-template>
+
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width:10%">Fecha</th>
+                        <th style="width:15%">No. reporte</th>
+                        <th style="width:25%">Área de seguimiento</th>
+                        <th style="width:20%">Tipo</th>
+                        <th style="width:10%">Prioridad</th>
+                        <th style="width:40%">Unidad</th>
+                        <th style="width:25%">Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </ng-template>
+
+                <ng-template pTemplate="body">
+                    <tr>
+                        <td>Fecha</td>
+                        <td>IM4125552</td>
+                        <td>Mesa de servicio</td>
+                        <td>Reinstalación AA</td>
+                        <td>75844 Salina Cruz 8</td>
+                        <td>Abierto</td>
+                        <td>Abierto</td>
+                        <td>Acciones</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </ng-template>
+</p-panel>

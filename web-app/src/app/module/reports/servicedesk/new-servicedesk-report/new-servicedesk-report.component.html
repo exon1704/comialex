@@ -1,0 +1,89 @@
+<p-panel>
+    <ng-template pTemplate="header">
+        <img src="assets/icons/module/report-manager.png" style="width: 32px">
+        <div class="p-panel-title">Mesa de servicio
+            <p-tag severity="info" styleClass="ml-2">Registrar reporte</p-tag>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="content">
+        <!--BARRA DE MENU-->
+        <p-megaMenu>
+            <p-button styleClass="p-button-text p-button-sm">
+                <img alt="logo" src="assets/icons/module/info-business.png" style="width: 1.5rem"/>
+                <span [ngStyle]="{color:'var(--text-color)'}" class="ml-2 font-bold">Mostrar datos de la unidad</span>
+            </p-button>
+        </p-megaMenu>
+        <div class="panel-main-content col-12">
+
+            <h5 class="pt-3">Valores generales</h5>
+            <p-divider></p-divider>
+            <div class="p-fluid grid">
+                <div class="field col-12 sm:col-6 md:col-6">
+                    <label>Unidad</label>
+                    <p-dropdown [(ngModel)]="selectedUnit" [filter]="true" [options]="units" [showClear]="true"
+                                filterBy="name" optionLabel="name" placeholder="Seleccione una opción">
+                        <ng-template pTemplate="selectedItem">
+                            <div *ngIf="selectedUnit">
+                                <div>{{selectedUnit.name}}</div>
+                            </div>
+                        </ng-template>
+                        <ng-template let-unit pTemplate="item">
+                            <div>
+                                <div>{{unit.name}}</div>
+                            </div>
+                        </ng-template>
+                    </p-dropdown>
+                </div><!--UNIDAD-->
+                <div class="field col-12 sm:col-6 md:col-2">
+                    <label>Clave colaborador</label>
+                    <p-inputNumber [useGrouping]="false" inputId="idColaborador" mode="decimal"></p-inputNumber>
+                </div><!--CLAVE DE COLABORADOR-->
+                <div class="field col-12 sm:col-6 md:col-4">
+                    <label>Tipo de reporte</label>
+                    <p-dropdown [(ngModel)]="selectedTypeReport" [filter]="true" [options]="typeReports"
+                                [showClear]="true"
+                                filterBy="name" optionLabel="name" placeholder="Seleccione">
+                        <ng-template pTemplate="selectedItem">
+                            <div *ngIf="selectedTypeReport">
+                                <div>{{selectedTypeReport.name}}</div>
+                            </div>
+                        </ng-template>
+                        <ng-template let-reportType pTemplate="item">
+                            <div>
+                                <div>{{reportType.name}}</div>
+                            </div>
+                        </ng-template>
+                    </p-dropdown>
+                </div><!--TIPO DE REPORTE-->
+            </div><!--DATOS GENERALES-->
+
+            <h5 class="pt-3">Reporte generado</h5><!--INFORMACIÓN DEL REPORTE-MESA DE SERVICIO-->
+            <p-divider></p-divider>
+            <div class="p-fluid grid">
+                <div class="field col-12  md:col-6">
+                    <label>Atiende</label>
+                    <input pInputText type="text">
+                </div><!--ATIENDE-->
+                <div class="field col-12 md:col-2">
+                    <label>#Número Reporte</label>
+                    <input pInputText type="text">
+                </div><!--NUMERO DE REPORTE-->
+                <div class="field col-12 md:col-4">
+                    <label>Estado del reporte</label>
+                    <p-selectButton [(ngModel)]="stateReport" [options]="statesReport" optionLabel="label"
+                                    optionValue="value"></p-selectButton>
+                </div><!--ESTADO DEL REPORTE-->
+                <div class="field col-12">
+                    <label>Descripción</label>
+                    <textarea pInputTextarea placeholder="Puede agregar una descripción opcional" rows="5"></textarea>
+                </div><!--ESTADO DEL REPORTE-->
+            </div>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <div class="flex justify-content-center">
+            <p-button icon="pi pi-save"
+                      label="Registrar reporte" styleClass="p-button"></p-button>
+        </div>
+    </ng-template>
+</p-panel>
