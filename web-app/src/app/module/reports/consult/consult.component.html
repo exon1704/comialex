@@ -1,0 +1,107 @@
+<p-panel>
+    <ng-template pTemplate="header">
+        <div class="imgbox-panel">
+            <img alt="franquicias"
+                 src="assets/icons/module/geocaching_32px.png">
+        </div>
+        <div class="p-panel-title">
+            <div class="p-title-text">
+                <div class="p-title-text">Consultar reportes</div>
+                <div><p>Consulte reportes o eventos generados</p>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+
+    <ng-template pTemplate="content">
+        <!--CONTENIDO PRINCIPAL DEL PANEL-->
+        <div class="panel-main-content pt-3">
+            <div class="p-fluid grid">
+                <div class="field col-12 sm:col-4 md:col-4">
+                    <label>Unidad</label>
+                    <p-dropdown [(ngModel)]="selectedUnit" [filter]="true" [options]="units" [showClear]="true"
+                                filterBy="name" optionLabel="name" placeholder="Seleccione unidad a consultar">
+                        <ng-template pTemplate="selectedItem">
+                            <div *ngIf="selectedUnit">
+                                <div>{{selectedUnit.name}}</div>
+                            </div>
+                        </ng-template>
+                        <ng-template let-unit pTemplate="item">
+                            <div>
+                                <div>{{unit.name}}</div>
+                            </div>
+                        </ng-template>
+                    </p-dropdown>
+                </div><!--UNIDAD-->
+                <div class="field col-12 sm:col-4 md:col-4">
+                    <label>Número de reporte</label>
+                    <div class="p-inputgroup">
+                        <input pInputText placeholder="No. reporte" type="text">
+                        <button class="p-button-secondary" icon="pi pi-search" pButton pRipple
+                                styleClass="p-button-warn"
+                                type="button"></button>
+                    </div>
+                </div>
+                <div class="field col-12 sm:col-4 md:col-4">
+                    <label>Mostras desde fecha</label>
+                    <div class="p-inputgroup">
+                        <p-calendar inputId="calendar" placeholder="Seleccionar fecha"></p-calendar>
+                        <button class="p-button-secondary " icon="pi pi-search" pButton pRipple
+                                styleClass="p-button-warn"
+                                type="button"></button>
+                    </div>
+                </div>
+            </div>
+            <!--FILTROS DE BUSQUEDA-->
+            <!--<p-fieldset [collapsed]="true" [toggleable]="true" legend="Filtro de consulta">
+                <div class="p-fluid grid py-0 my-0 px-2">
+                    <div class="col-12 py-2 md:col-3">
+
+                    </div>
+                    <div class="col-12 py-2 md:col-3">
+                        <div class="p-inputgroup">
+
+                        </div>
+                    </div>
+                </div>
+            </p-fieldset>-->
+            <!--TABLA DE REPORTES-->
+            <p-table [scrollable]="true" [tableStyle]="{'min-width': '50rem'}" scrollHeight="400px"
+                     styleClass="p-datatable-sm">
+
+                <ng-template pTemplate="caption">
+                    <div class="flex">
+                    <span class="p-input-icon-left ml-auto">
+                    <i class="pi pi-search"></i>
+                    <input pInputText placeholder="Buscar en resultados" type="text"/>
+                </span>
+                    </div>
+                </ng-template>
+
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width:10%">Fecha</th>
+                        <th style="width:15%">No. reporte</th>
+                        <th style="width:25%">Área de seguimiento</th>
+                        <th style="width:20%">Tipo</th>
+                        <th style="width:25%">Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </ng-template>
+
+                <ng-template pTemplate="body">
+                    <tr>
+                        <td>Fecha</td>
+                        <td>IM4125552</td>
+                        <td>Mesa de servicio</td>
+                        <td>Reinstalación AA</td>
+                        <td>75844 Salina Cruz 8</td>
+                        <td>Abierto</td>
+                        <td>Abierto</td>
+                        <td>Acciones</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </ng-template>
+</p-panel>

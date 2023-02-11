@@ -24,8 +24,11 @@
         "paths": {
             "@app-pages/*": ["app/pages/*"],
             "@pp-dashboard/*": ["app/module/dashboard/*"],
-            "@app-modules/*": ["app/module/*"],
-            "@app-layout/*":["app/layout/*"]
+            "@manager-ti/*": ["app/module/ti/*"],
+            "@reports/consult/*": ["app/module/reports/consult/*"],
+            "@reports/register/*": ["app/module/reports/register/*"],
+            "@reports/generate/*": ["app/module/reports/generate/*"],
+            "@app-layout/*": ["app/layout/*"]
         }
     },
     "angularCompilerOptions": {

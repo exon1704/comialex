@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
-import {ReportManagerComponent} from "@app-modules/reports/manager/report-manager.component";
+import {ReportManagerComponent} from "@app-modules/ti/reportmanager/manager/report-manager.component";
 
 
 @NgModule({

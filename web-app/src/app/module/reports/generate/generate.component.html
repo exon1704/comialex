@@ -1,0 +1,67 @@
+<p-panel>
+    <ng-template pTemplate="header">
+        <div class="imgbox-panel">
+            <img src="assets/icons/module/auto_deskew_32px.png">
+        </div>
+        <div class="p-panel-title">
+            <div class="p-title-text">Generar reporte</div>
+            <div><p>Puede generar un reporte o notificar un evento</p>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="content">
+        <div class="panel-main-content col-12">
+            <h5 class="pt-3">Datos generales</h5>
+            <p-divider></p-divider>
+            <div class="p-fluid grid">
+                <div class="field col-12 sm:col-6 md:col-6">
+                    <label>Unidad</label>
+                    <p-dropdown [(ngModel)]="selectedUnit" [filter]="true" [options]="units" [showClear]="true"
+                                filterBy="name" optionLabel="name" placeholder="Seleccione unidad a registrar">
+                        <ng-template pTemplate="selectedItem">
+                            <div *ngIf="selectedUnit">
+                                <div>{{selectedUnit.name}}</div>
+                            </div>
+                        </ng-template>
+                        <ng-template let-unit pTemplate="item">
+                            <div>
+                                <div>{{unit.name}}</div>
+                            </div>
+                        </ng-template>
+                    </p-dropdown>
+                </div><!--UNIDAD-->
+                <div class="field col-12 sm:col-6 md:col-2">
+                    <label>Clave del colaborador</label>
+                    <p-inputNumber [useGrouping]="false" inputId="idColaborador" mode="decimal"
+                                   placeholder="Ingrese su clave"></p-inputNumber>
+                </div><!--CLAVE DE COLABORADOR-->
+                <div class="field col-12 sm:col-6 md:col-4">
+                    <label>Categoría</label>
+                    <p-dropdown [(ngModel)]="selectedUnit" [filter]="true" [options]="units" [showClear]="true"
+                                filterBy="name" optionLabel="name" placeholder="Seleccione unidad a registrar">
+                        <ng-template pTemplate="selectedItem">
+                            <div *ngIf="selectedUnit">
+                                <div>{{selectedUnit.name}}</div>
+                            </div>
+                        </ng-template>
+                        <ng-template let-unit pTemplate="item">
+                            <div>
+                                <div>{{unit.name}}</div>
+                            </div>
+                        </ng-template>
+                    </p-dropdown>
+                </div><!--Tipo de reporte-->
+                <div class="field col-12 md:col-12">
+                    <label>Descripción</label>
+                    <textarea pInputTextarea placeholder="Puede agregar una descripción opcional" rows="3"></textarea>
+                </div><!--DESCRIPCION-->
+            </div>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <div class="flex justify-content-center">
+            <p-button icon="pi pi-save"
+                      label="Generar reporte" styleClass="p-button"></p-button>
+        </div>
+    </ng-template>
+</p-panel>
